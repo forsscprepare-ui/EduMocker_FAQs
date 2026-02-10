@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAQ | EDUMocker</title>
+
+<style>
+/* ===== GLOBAL ===== */
+*{
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin:0;
+  background:#f4f6f8;
+  padding:12px;
+}
+
+/* ===== HEADER ===== */
+.header{
+  text-align:center;
+  padding:16px 10px;
+  font-size:22px;
+  font-weight:bold;
+  color:#2196F2;
+}
+
+/* ===== FAQ CONTAINER ===== */
+.faq-container{
+  max-width:600px;
+  margin:auto;
+}
+
+/* ===== FAQ CARD ===== */
+.faq-item{
+  background:#fff;
+  border-radius:10px;
+  margin-bottom:12px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ===== QUESTION ===== */
+.faq-question{
+  padding:14px 16px;
+  font-size:16px;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  background:#ffffff;
+}
+
+/* Arrow */
+.faq-question span{
+  font-size:20px;
+  transition:0.3s;
+}
+
+/* ===== ANSWER ===== */
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease;
+  padding:0 16px;
+  font-size:14px;
+  color:#444;
+}
+
+/* Active state */
+.faq-item.active .faq-answer{
+  padding:14px 16px;
+}
+
+.faq-item.active .faq-question span{
+  transform:rotate(180deg);
+}
+
+/* ===== VIDEO / MEDIA SAFE ===== */
+.faq-answer video,
+.faq-answer iframe,
+.faq-answer img{
+  width:100%;
+  border-radius:8px;
+  margin-top:10px;
+}
+
+/* ===== MOBILE FRIENDLY ===== */
+@media(max-width:480px){
+  .header{font-size:20px;}
+  .faq-question{font-size:15px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== COMPANY NAME ===== -->
+<div class="header">EDUMocker</div>
+
+<!-- ===== FAQ SECTION ===== -->
+<div class="faq-container">
+
+  <!-- FAQ 1 -->
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      What is EDUMocker?
+      <span>▼</span>
+    </div>
+    <div class="faq-answer">
+      EDUMocker is an educational platform designed to help students
+      practice mock tests, quizzes, and exam-oriented questions easily.
+    </div>
+  </div>
+
+  <!-- FAQ 2 (Video Example) -->
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      How to use EDUMocker?
+      <span>▼</span>
+    </div>
+    <div class="faq-answer">
+      <p>You can learn how to use EDUMocker in the video below:</p>
+
+      <!-- Replace video src if needed -->
+      <video controls>
+        <source src="your-video-link.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </div>
+  </div>
+
+  <!-- FAQ 3 -->
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Is EDUMocker mobile friendly?
+      <span>▼</span>
+    </div>
+    <div class="faq-answer">
+      Yes ✅ EDUMocker is specially designed for mobile users,
+      ensuring smooth navigation and fast loading.
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+function toggleFAQ(element){
+  const item = element.parentElement;
+  const answer = item.querySelector(".faq-answer");
+
+  if(item.classList.contains("active")){
+    answer.style.maxHeight = null;
+    item.classList.remove("active");
+  }else{
+    answer.style.maxHeight = answer.scrollHeight + "px";
+    item.classList.add("active");
+  }
+}
+</script>
+
+</body>
+</html>
